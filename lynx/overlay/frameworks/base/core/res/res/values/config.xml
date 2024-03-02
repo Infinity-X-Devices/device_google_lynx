@@ -322,4 +322,7 @@
     <!-- Boolean indicating whether allow sending null to modem to clear the previous initial attach
          data profile -->
     <bool name="allow_clear_initial_attach_data_profile">true</bool>
+
+    <!-- Fingerprint from stock ROM -->
+    <string name="config_stockFingerprint" translatable="false">google/lynx/lynx:14/AP2A.240705.004/11875680:user/release-keys</string>
 </resources>

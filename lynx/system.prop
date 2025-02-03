@@ -1,0 +1,6 @@
+# Configuration for Pixel 7a
+ro.infinity.soc=Google Tensor G2
+ro.infinity.battery=4385mAh
+ro.infinity.display=1080x2400, 90Hz
+ro.infinity.camera=64MP+13MP+13MP
+ro.product.marketname=Pixel 7a

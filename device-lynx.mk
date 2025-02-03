@@ -14,10 +14,8 @@
 # limitations under the License.
 #
 
-TARGET_LINUX_KERNEL_VERSION := $(RELEASE_KERNEL_LYNX_VERSION)
-# Keeps flexibility for kasan and ufs builds
-TARGET_KERNEL_DIR ?= $(RELEASE_KERNEL_LYNX_DIR)
-TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_KERNEL_LYNX_DIR)/kernel-headers
+TARGET_KERNEL_DIR := device/google/lynx-kernels/infinity
+TARGET_BOARD_KERNEL_HEADERS := $(TARGET_KERNEL_DIR)/kernel-headers
 
 DEVICE_PACKAGE_OVERLAYS += device/google/lynx/lynx/overlay
 

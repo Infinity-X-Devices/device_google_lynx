@@ -4,7 +4,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay-infinity
+
+# Always use scudo for memory allocator
+PRODUCT_USE_SCUDO := true
 
 # ANGLE - Almost Native Graphics Layer Engine
 PRODUCT_PACKAGES += \
@@ -24,6 +27,15 @@ PRODUCT_PACKAGES += \
 # IWLAN
 PRODUCT_PACKAGES += \
     Iwlan
+
+# Camera
+include vendor/google/camera/config.mk
+
+# Googles Face Unlock
+include vendor/google/faceunlock/config.mk
+
+# PixelParts
+include packages/apps/PixelParts/device.mk
 
 # wireless_charger HAL service
 include device/google/gs-common/wireless_charger/wireless_charger.mk

@@ -31,3 +31,5 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
 include device/google/gs201/wifi/qcom/BoardConfig-wifi.mk
 
 include $(VENDOR_PATH)/BoardConfigVendor.mk
+
+TARGET_SYSTEM_PROP :=  device/google/lynx/lynx/system.prop

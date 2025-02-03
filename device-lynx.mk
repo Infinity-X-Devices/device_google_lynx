@@ -8,11 +8,34 @@
 # Kernel
 TARGET_LINUX_KERNEL_VERSION := 6.1
 TARGET_KERNEL_DEVICE := lynx
-TARGET_KERNEL_DIR := device/google/$(TARGET_KERNEL_DEVICE)-kernels/$(TARGET_LINUX_KERNEL_VERSION)
-TARGET_KERNEL_PLATFORM_SOURCE := google/gs-$(TARGET_LINUX_KERNEL_VERSION)
+TARGET_KERNEL_PATH := device/google/lynx-kernels
+TARGET_KERNEL_DIR := $(TARGET_KERNEL_PATH)/6.1
+TARGET_BOARD_KERNEL_HEADERS := $(TARGET_KERNEL_DIR)/kernel-headers
+TARGET_PREBUILT_KERNEL := $(TARGET_KERNEL_DIR)/Image.lz4
+LOCAL_KERNEL := $(TARGET_KERNEL_DIR)/Image.lz4
+
+LOCAL_PATH := device/google/lynx
 
 # Inherit from gs201
 include device/google/gs201/common.mk
+
+# Always use scudo for memory allocator
+PRODUCT_USE_SCUDO := true
+
+# Camera
+$(call inherit-product-if-exists, vendor/google/camera/config.mk)
+
+# Face unlock
+$(call inherit-product-if-exists, vendor/google/faceunlock/config.mk)
+
+# PixelParts
+include packages/apps/PixelParts/device.mk
+
+# Pixel APN list
+$(call inherit-product, vendor/google/CarrierSettings/telephony.mk)
+
+# ViPER4Android FX
+$(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
 
 # Overlays
 PRODUCT_PACKAGES += \

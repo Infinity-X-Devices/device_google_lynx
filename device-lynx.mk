@@ -11,9 +11,18 @@ TARGET_KERNEL_DIR := device/google/$(TARGET_KERNEL_DEVICE)-kernels/$(TARGET_LINU
 TARGET_KERNEL_PLATFORM_SOURCE := google/gs-$(TARGET_LINUX_KERNEL_VERSION)
 
 DEVICE_PACKAGE_OVERLAYS += device/google/lynx/lynx/overlay
-DEVICE_PACKAGE_OVERLAYS += device/google/lynx/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += device/google/lynx/overlay-infinity
 
 include device/google/gs201/device-shipping-common.mk
+
+# Camera
+$(call inherit-product-if-exists, vendor/google/camera/config.mk)
+
+# Face unlock
+$(call inherit-product-if-exists, vendor/google/faceunlock/config.mk)
+
+# Pixel Parts
+$(call inherit-product-if-exists, packages/apps/PixelParts/device.mk)
 
 # Recovery files
 PRODUCT_COPY_FILES += \

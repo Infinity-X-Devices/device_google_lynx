@@ -46,4 +46,4 @@ include device/google/gs201/wifi/qcom/BoardConfig-wifi.mk
 
 DEVICE_PATH := device/google/lynx
 VENDOR_PATH := vendor/google/lynx
-include $(DEVICE_PATH)/$(TARGET_BOOTLOADER_BOARD_NAME)/BoardConfigLineage.mk
+include $(DEVICE_PATH)/$(TARGET_BOOTLOADER_BOARD_NAME)/BoardConfigInfinity.mk
